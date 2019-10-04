@@ -1,6 +1,5 @@
 package com.example.helpdesk.api;
 
-
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -11,14 +10,14 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class MensagemTask extends AsyncTask<Void, Void, String> {
+public class ChamadoTask extends AsyncTask<Void, Void, String> {
 
     private OnEventListener<String> mCallBack;
     private Context mContext;
     public Exception mException;
 
 
-    public MensagemTask(Context context, OnEventListener callback) {
+    public ChamadoTask(Context context, OnEventListener callback) {
         mCallBack = callback;
         mContext = context;
     }
@@ -29,7 +28,7 @@ public class MensagemTask extends AsyncTask<Void, Void, String> {
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
         try {
-            URL url = new URL("http://10.0.2.2:8080/chamado");
+            URL url = new URL("http://10.0.2.2:8080/chamados");
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();

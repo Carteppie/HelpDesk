@@ -21,9 +21,9 @@ public class TabsActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         tabLayout = (TabLayout) findViewById(R.id.layoutTab);
         adpter = new TabAdapter(getSupportFragmentManager());
-        adpter.addFragment(new Tab1Fragment(), "Tab 1");
-        adpter.addFragment(new Tab1Fragment(),"Tab 2");
-        adpter.addFragment(new Tab1Fragment(),"Tab 3");
+        adpter.addFragment(new ChamadosAberto(), "Aberto");
+        adpter.addFragment(new ChamadosAberto(),"Solução");
+        adpter.addFragment(new ChamadosAberto(),"Fechado");
         viewPager.setAdapter(adpter);
         tabLayout.setupWithViewPager(viewPager);
 

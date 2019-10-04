@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Tab2Fragment extends Fragment {
+public class ChamadosFechado extends Fragment {
 
     ListView listViewMensagensNaoEnviadas;
 

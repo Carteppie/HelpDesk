@@ -9,12 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         final EditText edtLogin = (EditText) findViewById(R.id.edtLogin);
         final EditText edtSenha = (EditText) findViewById(R.id.edtSenha);
@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
                 String login = edtLogin.getText().toString();
                 String chave = edtSenha.getText().toString();
 
-                if (login.equals("admin") && chave.equals("1234")) {
+                if (login.equals("") && chave.equals("")) {
                     Toast msg = Toast.makeText(getApplicationContext(), "Login realizado com sucesso", Toast.LENGTH_LONG);
                     msg.show();
 
-                    Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                    Intent intent = new Intent(LoginActivity.this, TabsActivity.class);
                     intent.putExtra("teste", "Olá " + login);
                     startActivity(intent);
 

@@ -4,21 +4,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/layoutTab"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="?actionBarSize"
-        app:tabGravity="fill"
-        app:tabIndicatorColor="@color/colorAccent"
-        app:tabIndicatorHeight="4dp"
-        app:tabBackground="@color/colorPrimary"
-        app:tabMode="fixed">
-    </com.google.android.material.tabs.TabLayout>
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </androidx.viewpager.widget.ViewPager>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/botao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:clickable="true"
+            app:srcCompat="@android:drawable/ic_input_add" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.viewpager.widget.ViewPager>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/layoutTab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?actionBarSize"
+            app:tabBackground="@color/colorPrimary"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/colorAccent"
+            app:tabIndicatorHeight="4dp"
+            app:tabMode="fixed"></com.google.android.material.tabs.TabLayout>
+    </RelativeLayout>
+
 
 </LinearLayout>
