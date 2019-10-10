@@ -8,11 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
-
 import com.example.helpdesk.api.ChamadoTask;
-import com.example.helpdesk.api.MensagemTask;
 import com.example.helpdesk.api.OnEventListener;
-import com.example.helpdesk.model.Mensagem;
 import com.example.helpdesk.model.Chamado;
 import com.google.gson.Gson;
 import java.util.ArrayList;
@@ -20,30 +17,35 @@ import java.util.List;
 
 public class ChamadosAberto extends Fragment {
 
-    ListView listViewMensagensEnviadas;
+    ListView listViewChamadosEnviados;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        final View view = inflater.inflate(R.layout.fragment_one, container, false);
+        final View view = inflater.inflate(R.layout.fragment_aberto, container, false);
 
-        final List<Mensagem> mensagens = new ArrayList<Mensagem>();
-
+        final List<Chamado> chamados = new ArrayList<Chamado>();
 
           ChamadoTask chamadoTask = new ChamadoTask(view.getContext(), new OnEventListener<String>() {
 
-
             @Override
             public void onSuccess(String result) {
-                Toast.makeText(view.getContext(), "SUCCESS: " + result, Toast.LENGTH_LONG).show();
+                Toast.makeText(view.getContext(), "Chamados Aberto " , Toast.LENGTH_LONG).show();
                 Gson gson = new Gson();
-                Chamado[] mensagens = gson.fromJson(result, Chamado[].class);
+                Chamado[] chamados1 = gson.fromJson(result, Chamado[].class);
 
-                ArrayAdapter<Chamado> adapter = new ArrayAdapter<Chamado>(getActivity(),
-                        android.R.layout.simple_list_item_1, mensagens);
+                for (Chamado chamado: chamados1) {
+                    if (chamado.getStatus().toLowerCase().equals("aberto")) {
 
-                listViewMensagensEnviadas = (ListView) view.findViewById(R.id.lista_mensagens_enviadas);
-                listViewMensagensEnviadas.setAdapter(adapter);
+                        chamados.add(chamado);
+                    }
+
+
+                    ArrayAdapter<Chamado> adapter = new ArrayAdapter<Chamado>(getActivity(),
+                        android.R.layout.simple_list_item_1, chamados);
+
+                listViewChamadosEnviados = (ListView) view.findViewById(R.id.lista_chamados_enviados);
+                listViewChamadosEnviados.setAdapter(adapter);
             }
 
             @Override
@@ -56,19 +58,3 @@ public class ChamadosAberto extends Fragment {
         return view;
     }
 }
-            // public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-  //      final View view = inflater.inflate(R.layout.fragment_one, container, false);
-
-   //     listViewMensagensEnviadas = (ListView) view.findViewById(R.id.lista_mensagens_enviadas);
-
-  //      List<Mensagem> mensagems = new ArrayList<Mensagem>();
-
-  //      for(int i=0; i<30; i++)
-  //          mensagems.add(new Mensagem(1L, "Mensagem " + i, Status.ENVIADA));
-
-  //      ArrayAdapter<Mensagem> adapter = new ArrayAdapter<Mensagem>(getActivity(),
-  //              android.R.layout.simple_list_item_1, mensagems);
-
-  //      listViewMensagensEnviadas.setAdapter(adapter);
-

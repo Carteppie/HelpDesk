@@ -1,16 +1,16 @@
 package com.example.helpdesk.model;
 
 public enum Status {
-    ENVIADA{
+    ABERTO{
         @Override
         public String toString(){
-            return "Enviada";
+            return "ABERTO";
         }
     },
-    NAOENVIADA{
+    FECHADO{
         @Override
         public String toString(){
-            return "Não Enviada";
+            return "FECHADO";
         }
     }
 }
