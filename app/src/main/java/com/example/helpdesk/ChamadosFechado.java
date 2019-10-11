@@ -36,10 +36,10 @@ public class ChamadosFechado extends Fragment {
             public void onSuccess(String result) {
                 Toast.makeText(view.getContext(), "Chamados Fechados " + result , Toast.LENGTH_LONG).show();
                 Gson gson = new Gson();
-                Chamado[] mensagens = gson.fromJson(result, Chamado[].class);
+                Chamado[] chamadosFechados = gson.fromJson(result, Chamado[].class);
 
                 ArrayAdapter<Chamado> adapter = new ArrayAdapter<Chamado>(getActivity(),
-                        android.R.layout.simple_list_item_2, mensagens);
+                        android.R.layout.simple_list_item_2, chamadosFechados);
 
                 listViewChamadosFechados = (ListView) view.findViewById(R.id.lista_mensagens_fechada);
                 listViewChamadosFechados.setAdapter(adapter);

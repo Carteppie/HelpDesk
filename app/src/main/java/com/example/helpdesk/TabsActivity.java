@@ -22,7 +22,7 @@ public class TabsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tabs);
 
-        final Button btnNovaMensagem = (Button) findViewById(R.id.btnNovaMensagem);
+       // final Button btnNovaMensagem = (Button) findViewById(R.id.botaoNovo);
         final FloatingActionButton botao = (FloatingActionButton) findViewById(R.id.botaoNovo);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         tabLayout = (TabLayout) findViewById(R.id.layoutTab);
@@ -34,7 +34,7 @@ public class TabsActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
 
-              btnNovaMensagem.setOnClickListener(new View.OnClickListener() {
+              botao.setOnClickListener(new View.OnClickListener() {
                  @Override
                    public void onClick(View view) {
 
