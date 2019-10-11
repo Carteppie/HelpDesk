@@ -8,8 +8,6 @@ public class Chamado {
 
     private int id;
 
-    private String texto;
-
     private Date dataEnvio;
 
     private String status;
@@ -18,9 +16,9 @@ public class Chamado {
 
     private String descricao;
 
-    public Chamado(int id, String texto, Date dataEnvio, String status, String solucao, String descricao) {
+    public Chamado(int id, Date dataEnvio, String status, String solucao, String descricao) {
         this.id = id;
-        this.texto = texto;
+
         this.dataEnvio = dataEnvio;
         this.status = status;
         this.solucao = solucao;
@@ -62,14 +60,6 @@ public class Chamado {
         this.id = id;
     }
 
-    public String getTexto() {
-        return texto;
-    }
-
-    public void setTexto(String texto) {
-        this.texto = texto;
-    }
-
     public Date getDataEnvio() {
         return dataEnvio;
     }
@@ -81,6 +71,6 @@ public class Chamado {
     @NonNull
     @Override
     public String toString() {
-        return this.texto;
+        return this.descricao;
     }
 }

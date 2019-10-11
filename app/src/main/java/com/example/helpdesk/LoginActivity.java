@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
                 String login = edtLogin.getText().toString();
                 String chave = edtSenha.getText().toString();
 
-                if (login.equals("Edson") && chave.equals("123456")) {
+                if (login.equals("") && chave.equals("")) {
                     Toast msg = Toast.makeText(getApplicationContext(), "Login realizado com sucesso", Toast.LENGTH_LONG);
                     msg.show();
 

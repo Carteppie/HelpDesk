@@ -47,12 +47,11 @@ public class NovoChamado extends AppCompatActivity {
                         enviarMensagem(mensagem, getApplicationContext());
                     }
 
-
                 }
             });
         }
 
-        public void enviarMensagem(String texto, final Context context) {
+        public void enviarMensagem(String descricao, final Context context) {
 
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
@@ -61,7 +60,7 @@ public class NovoChamado extends AppCompatActivity {
             mAPIService = ApiUtils.getService();
 
             Map<String, String> jsonParams = new ArrayMap<>();
-            jsonParams.put("texto", texto);
+            jsonParams.put("Descricao", descricao);
             jsonParams.put("dataEnvio", sdf.format(dataEnvio.getTime()));
 
             RequestBody body = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"),(new JSONObject(jsonParams)).toString());
